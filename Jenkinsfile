@@ -13,15 +13,15 @@ pipeline {
                 sh 'mvn -pl . clean install'
                 dir('bukkit') {
                     echo "Building Bukkit Utils..."
-                    sh 'mvn clean package -Djar.finalName=Utils_Bukkit-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
+                    sh 'mvn clean package'
                 }
                 dir('spigot') {
                     echo "Building Spigot Utils..."
-                    sh 'mvn clean package -Djar.finalName=Utils_Spigot-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
+                    sh 'mvn clean package'
                 }
                 dir('bungee') {
                     echo "Building Bungee Utils..."
-                    sh 'mvn clean package -Djar.finalName=Utils_Bungee-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
+                    sh 'mvn clean package'
                 }
             }
             post {
