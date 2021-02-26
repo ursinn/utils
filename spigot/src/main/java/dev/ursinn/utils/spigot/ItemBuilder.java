@@ -25,6 +25,7 @@
 
 package dev.ursinn.utils.spigot;
 
+import org.apiguardian.api.API;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -40,6 +41,7 @@ import java.util.*;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.MAINTAINED, since = "1.0")
 public class ItemBuilder {
 
     private final ItemStack itemStack;
