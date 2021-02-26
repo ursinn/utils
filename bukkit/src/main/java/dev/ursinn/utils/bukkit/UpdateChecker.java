@@ -26,6 +26,8 @@
 package dev.ursinn.utils.bukkit;
 
 import lombok.Cleanup;
+import lombok.Getter;
+import org.apiguardian.api.API;
 import org.bukkit.plugin.Plugin;
 
 import javax.annotation.Nonnull;
@@ -42,10 +44,16 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.STABLE, since = "1.0")
 public class UpdateChecker {
 
     private final int id;
     private final Plugin plugin;
+
+    /**
+     * Result of UpdateCheck
+     */
+    @Getter
     private boolean updateAvailable;
     private String updateNotifyText;
 
@@ -60,13 +68,6 @@ public class UpdateChecker {
         this.plugin = Objects.requireNonNull(plugin);
         this.updateAvailable = false;
         this.updateNotifyText = "An update for %PLUGIN_NAME% is available";
-    }
-
-    /**
-     * @return result of UpdateCheck
-     */
-    public boolean isUpdateAvailable() {
-        return updateAvailable;
     }
 
     /**

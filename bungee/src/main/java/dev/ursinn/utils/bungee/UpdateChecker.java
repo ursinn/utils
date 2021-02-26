@@ -26,7 +26,9 @@
 package dev.ursinn.utils.bungee;
 
 import lombok.Cleanup;
+import lombok.Getter;
 import net.md_5.bungee.api.plugin.Plugin;
+import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 import java.io.BufferedReader;
@@ -42,10 +44,16 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.STABLE, since = "1.0")
 public class UpdateChecker {
 
     private final int id;
     private final Plugin plugin;
+
+    /**
+     * Result of UpdateCheck
+     */
+    @Getter
     private boolean updateAvailable;
     private String updateNotifyText;
 
@@ -60,13 +68,6 @@ public class UpdateChecker {
         this.plugin = Objects.requireNonNull(plugin);
         this.updateAvailable = false;
         this.updateNotifyText = "An update for %PLUGIN_NAME% is available";
-    }
-
-    /**
-     * @return result of UpdateCheck
-     */
-    public boolean isUpdateAvailable() {
-        return updateAvailable;
     }
 
     /**
