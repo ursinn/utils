@@ -1,0 +1,30 @@
+language: java
+
+jdk:
+  - openjdk8
+  - openjdk11
+
+jobs:
+  include:
+    - stage: "Build Parent"
+      script:
+        - mvn -pl . clean install
+    - stage: "Build Plugins"
+      script:
+        - cd bukkit
+        - mvn clean verify
+    - stage: "Build Plugins"
+      script:
+        - cd spigot
+        - mvn clean verify
+    - stage: "Build Plugins"
+      script:
+        - cd bungee
+        - mvn clean verify
+
+cache:
+  directories:
+    - $HOME/.m2
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

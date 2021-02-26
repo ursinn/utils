@@ -1,0 +1,34 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+                sh 'mvn -pl . clean install'
+                dir('bukkit') {
+                    echo "Building Bukkit Utils..."
+                    sh 'mvn clean package -Djar.finalName=Utils_Bukkit-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
+                }
+                dir('spigot') {
+                    echo "Building Spigot Utils..."
+                    sh 'mvn clean package -Djar.finalName=Utils_Spigot-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
+                }
+                dir('bungee') {
+                    echo "Building Bungee Utils..."
+                    sh 'mvn clean package -Djar.finalName=Utils_Bungee-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
+                }
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
+                }
+            }
+        }
+    }
+}
