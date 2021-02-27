@@ -11,6 +11,10 @@ pipeline {
             steps {
                 echo 'Building..'
                 sh 'mvn -pl . clean install'
+                dir('java') {
+                    echo "Building Java Utils..."
+                    sh 'mvn clean package'
+                }
                 dir('bukkit') {
                     echo "Building Bukkit Utils..."
                     sh 'mvn clean package'

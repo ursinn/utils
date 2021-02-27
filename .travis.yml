@@ -9,15 +9,19 @@ jobs:
     - stage: "Build Parent"
       script:
         - mvn -pl . clean install
-    - stage: "Build Plugins"
+    - stage: "Build Utils"
+      script:
+        - cd java
+        - mvn clean verify
+    - stage: "Build Utils"
       script:
         - cd bukkit
         - mvn clean verify
-    - stage: "Build Plugins"
+    - stage: "Build Utils"
       script:
         - cd spigot
         - mvn clean verify
-    - stage: "Build Plugins"
+    - stage: "Build Utils"
       script:
         - cd bungee
         - mvn clean verify
