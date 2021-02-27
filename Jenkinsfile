@@ -48,24 +48,19 @@ pipeline {
                 sh 'mvn -pl . clean install'
                 dir('java') {
                     echo "Building Java Utils..."
-                    sh 'mvn clean package'
+                    sh 'mvn clean verify'
                 }
                 dir('bukkit') {
                     echo "Building Bukkit Utils..."
-                    sh 'mvn clean package'
+                    sh 'mvn clean verify'
                 }
                 dir('spigot') {
                     echo "Building Spigot Utils..."
-                    sh 'mvn clean package'
+                    sh 'mvn clean verify'
                 }
                 dir('bungee') {
                     echo "Building Bungee Utils..."
-                    sh 'mvn clean package'
-                }
-            }
-            post {
-                success {
-                    archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
+                    sh 'mvn clean verify'
                 }
             }
         }
