@@ -72,7 +72,7 @@ public class Utils {
     }
 
     /**
-     * @return Get NMS Version
+     * @return NMS Version
      */
     public static @Nonnull
     String getNmsVersion() {
