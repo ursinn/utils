@@ -41,6 +41,13 @@ public class Utils {
         throw new IllegalStateException("Utility class");
     }
 
+    /**
+     * Build String from String array
+     *
+     * @param args  String array
+     * @param start Start position in array
+     * @return String
+     */
     public static @Nonnull
     String buildString(@Nonnull String[] args, int start) {
         StringBuilder sb = new StringBuilder();

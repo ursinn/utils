@@ -48,6 +48,12 @@ public class Utils {
         throw new IllegalStateException("Utility class");
     }
 
+    /**
+     * Register Listeners from Package
+     *
+     * @param packageName Package Name
+     * @param plugin      Plugin Instance
+     */
     public static void registerListener(@Nonnull String packageName, @Nonnull Plugin plugin) {
         PluginManager pluginManager = Objects.requireNonNull(plugin).getProxy().getPluginManager();
         try {
@@ -62,5 +68,25 @@ public class Utils {
                 IllegalAccessException | InvocationTargetException | InstantiationException exception) {
             plugin.getLogger().warning(String.valueOf(exception));
         }
+    }
+
+    /**
+     * Build String from String array
+     *
+     * @param args  String array
+     * @param start Start position in array
+     * @return String
+     */
+    public static @Nonnull
+    String buildString(@Nonnull String[] args, int start) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = start; i < args.length; i++) {
+            if (i == args.length - 1) {
+                sb.append(args[i]);
+            } else {
+                sb.append(args[i]).append(" ");
+            }
+        }
+        return sb.toString();
     }
 }
