@@ -23,7 +23,7 @@
  *
  */
 
-package dev.ursinn.utils.spigot;
+package dev.ursinn.utils.bukkit.checker;
 
 import lombok.Cleanup;
 import lombok.Getter;
