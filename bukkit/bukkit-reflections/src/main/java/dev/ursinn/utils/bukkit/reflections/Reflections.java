@@ -23,7 +23,7 @@
  *
  */
 
-package dev.ursinn.utils.spigot;
+package dev.ursinn.utils.bukkit.reflections;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
