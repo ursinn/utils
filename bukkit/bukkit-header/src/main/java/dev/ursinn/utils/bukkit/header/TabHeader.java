@@ -23,7 +23,7 @@
  *
  */
 
-package dev.ursinn.utils.spigot;
+package dev.ursinn.utils.bukkit.header;
 
 import lombok.Getter;
 import org.apiguardian.api.API;
