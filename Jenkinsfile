@@ -14,11 +14,11 @@ pipeline {
                 sh 'mvn -pl . clean install'
                 dir('java') {
                     echo "Building Java Utils..."
-                    sh 'mvn clean package'
+                    sh 'mvn clean install'
                 }
                 dir('bukkit') {
                     echo "Building Bukkit Utils..."
-                    sh 'mvn clean package'
+                    sh 'mvn clean install'
                 }
                 dir('spigot') {
                     echo "Building Spigot Utils..."
