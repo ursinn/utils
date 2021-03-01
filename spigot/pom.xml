@@ -35,17 +35,21 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spigot</artifactId>
+    <artifactId>spigot-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <name>Spigot Utils</name>
+    <name>Spigot Utils Maven Parent</name>
     <description>Spigot Utils</description>
     <url>https://github.com/ursinn/utils</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <modules>
+        <module>spigot-builder</module>
+    </modules>
 
     <repositories>
         <!-- Spigot Dependency -->

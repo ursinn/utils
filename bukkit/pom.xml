@@ -35,17 +35,24 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bukkit</artifactId>
+    <artifactId>bukkit-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <name>Bukkit Utils</name>
+    <name>Bukkit Utils Maven Parent</name>
     <description>Bukkit Utils</description>
     <url>https://github.com/ursinn/utils</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <modules>
+        <module>bukkit-utils</module>
+        <module>bukkit-builder</module>
+        <module>bukkit-checker</module>
+        <module>bukkit-world</module>
+    </modules>
 
     <repositories>
         <!-- Bukkit Dependency -->

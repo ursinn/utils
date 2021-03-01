@@ -35,17 +35,21 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>java</artifactId>
+    <artifactId>java-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
-    <name>Java Utils</name>
+    <name>Java Utils Maven Parent</name>
     <description>Java Utils</description>
     <url>https://github.com/ursinn/utils</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <modules>
+        <module>java-utils</module>
+    </modules>
 
     <dependencies>
         <!-- Annotation - JSR305 -->
