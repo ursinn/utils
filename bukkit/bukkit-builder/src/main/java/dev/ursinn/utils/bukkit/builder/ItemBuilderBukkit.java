@@ -23,7 +23,7 @@
  *
  */
 
-package dev.ursinn.utils.bukkit;
+package dev.ursinn.utils.bukkit.builder;
 
 import org.apiguardian.api.API;
 import org.bukkit.Material;
@@ -42,7 +42,7 @@ import java.util.*;
  * @since 1.0
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class ItemBuilder {
+public class ItemBuilderBukkit {
 
     private final ItemStack itemStack;
 
@@ -52,7 +52,7 @@ public class ItemBuilder {
      * @param itemStack item ({@link ItemStack})
      */
     public @Nonnull
-    ItemBuilder(@Nonnull ItemStack itemStack) {
+    ItemBuilderBukkit(@Nonnull ItemStack itemStack) {
         this.itemStack = Objects.requireNonNull(itemStack);
     }
 
@@ -62,7 +62,7 @@ public class ItemBuilder {
      * @param type item material
      */
     public @Nonnull
-    ItemBuilder(@Nonnull Material type) {
+    ItemBuilderBukkit(@Nonnull Material type) {
         this.itemStack = new ItemStack(Objects.requireNonNull(type));
     }
 
@@ -73,7 +73,7 @@ public class ItemBuilder {
      * @param amount item amount
      */
     public @Nonnull
-    ItemBuilder(@Nonnull Material type, int amount) {
+    ItemBuilderBukkit(@Nonnull Material type, int amount) {
         this.itemStack = new ItemStack(Objects.requireNonNull(type), amount);
     }
 
@@ -85,7 +85,7 @@ public class ItemBuilder {
      * @param damage durability / damage
      */
     public @Nonnull
-    ItemBuilder(@Nonnull Material type, int amount, short damage) {
+    ItemBuilderBukkit(@Nonnull Material type, int amount, short damage) {
         this.itemStack = new ItemStack(Objects.requireNonNull(type), amount, damage);
     }
 
@@ -102,7 +102,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder setName(@Nonnull String name) {
+    ItemBuilderBukkit setName(@Nonnull String name) {
         ItemMeta meta = getItemMeta();
         meta.setDisplayName(name);
         setItemMeta(meta);
@@ -114,7 +114,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder addLore(@Nonnull List<String> lore) {
+    ItemBuilderBukkit addLore(@Nonnull List<String> lore) {
         ItemMeta meta = getItemMeta();
         meta.setLore(lore);
         setItemMeta(meta);
@@ -126,7 +126,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder addLore(@Nonnull String... lore) {
+    ItemBuilderBukkit addLore(@Nonnull String... lore) {
         ItemMeta itemMeta = itemStack.getItemMeta();
         List<String> original = itemMeta.getLore();
         if (original == null) {
@@ -151,7 +151,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder addItemFlags(@Nonnull ItemFlag... itemFlags) {
+    ItemBuilderBukkit addItemFlags(@Nonnull ItemFlag... itemFlags) {
         ItemMeta meta = getItemMeta();
         meta.addItemFlags(itemFlags);
         setItemMeta(meta);
@@ -179,7 +179,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder setMaterial(@Nonnull Material type) {
+    ItemBuilderBukkit setMaterial(@Nonnull Material type) {
         itemStack.setType(type);
         return this;
     }
@@ -196,7 +196,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder setAmount(int amount) {
+    ItemBuilderBukkit setAmount(int amount) {
         itemStack.setAmount(amount);
         return this;
     }
@@ -213,7 +213,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder setDurability(short damage) {
+    ItemBuilderBukkit setDurability(short damage) {
         itemStack.setDurability(damage);
         return this;
     }
@@ -231,7 +231,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder setData(@Nonnull MaterialData data) {
+    ItemBuilderBukkit setData(@Nonnull MaterialData data) {
         itemStack.setData(data);
         return this;
     }
@@ -242,7 +242,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder addEnchantment(@Nonnull Enchantment enchantment, int level) {
+    ItemBuilderBukkit addEnchantment(@Nonnull Enchantment enchantment, int level) {
         itemStack.addEnchantment(enchantment, level);
         return this;
     }
@@ -252,7 +252,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder addEnchantments(@Nonnull Map<Enchantment, Integer> enchantments) {
+    ItemBuilderBukkit addEnchantments(@Nonnull Map<Enchantment, Integer> enchantments) {
         itemStack.addEnchantments(enchantments);
         return this;
     }
@@ -263,7 +263,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder addUnsafeEnchantment(@Nonnull Enchantment enchantment, int level) {
+    ItemBuilderBukkit addUnsafeEnchantment(@Nonnull Enchantment enchantment, int level) {
         itemStack.addUnsafeEnchantment(enchantment, level);
         return this;
     }
@@ -273,7 +273,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder addUnsafeEnchantments(@Nonnull Map<Enchantment, Integer> enchantments) {
+    ItemBuilderBukkit addUnsafeEnchantments(@Nonnull Map<Enchantment, Integer> enchantments) {
         itemStack.addUnsafeEnchantments(enchantments);
         return this;
     }
@@ -299,7 +299,7 @@ public class ItemBuilder {
      * @return ItemBuilder
      */
     public @Nonnull
-    ItemBuilder setItemMeta(@Nonnull ItemMeta meta) {
+    ItemBuilderBukkit setItemMeta(@Nonnull ItemMeta meta) {
         itemStack.setItemMeta(meta);
         return this;
     }
