@@ -23,9 +23,10 @@
  *
  */
 
-package dev.ursinn.utils.spigot;
+package dev.ursinn.utils.bukkit.utils;
 
 import com.google.common.reflect.ClassPath;
+import dev.ursinn.utils.java.UtilsJava;
 import org.apiguardian.api.API;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
@@ -43,9 +44,9 @@ import java.util.Objects;
  * @since 1.0
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class Utils {
+public class UtilsBukkit extends UtilsJava {
 
-    private Utils() {
+    protected UtilsBukkit() {
         throw new IllegalStateException("Utility class");
     }
 
@@ -78,25 +79,5 @@ public class Utils {
     String getNmsVersion() {
         String ver = Bukkit.getServer().getClass().getPackage().getName();
         return ver.substring(ver.lastIndexOf('.') + 1);
-    }
-
-    /**
-     * Build String from String array
-     *
-     * @param args  String array
-     * @param start Start position in array
-     * @return String
-     */
-    public static @Nonnull
-    String buildString(@Nonnull String[] args, int start) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = start; i < args.length; i++) {
-            if (i == args.length - 1) {
-                sb.append(args[i]);
-            } else {
-                sb.append(args[i]).append(" ");
-            }
-        }
-        return sb.toString();
     }
 }
