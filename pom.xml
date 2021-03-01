@@ -60,8 +60,8 @@
     </issueManagement>
 
     <ciManagement>
-        <system>Travis CI</system>
-        <url>https://travis-ci.com/github/ursinn/utils</url>
+        <system>Jenkins CI</system>
+        <url>https://ci.ursinn.dev/job/ursinn/job/utils</url>
     </ciManagement>
 
     <developers>
