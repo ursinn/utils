@@ -122,13 +122,6 @@
                 <version>${dependency.bungeecord.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- Guava -->
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${dependency.guava.version}</version>
-                <scope>provided</scope>
-            </dependency>
             <!-- JSR305 [Annotation] -->
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>

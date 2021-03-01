@@ -65,17 +65,17 @@
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot-api</artifactId>
         </dependency>
-        <!-- Annotation - JSR305 -->
+        <!-- JSR305 [Annotation] -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
         </dependency>
-        <!-- Annotation - API -->
+        <!-- API [Annotation] -->
         <dependency>
             <groupId>org.apiguardian</groupId>
             <artifactId>apiguardian-api</artifactId>
         </dependency>
-        <!-- Lombok -->
+        <!-- Lombok [Annotation] -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
