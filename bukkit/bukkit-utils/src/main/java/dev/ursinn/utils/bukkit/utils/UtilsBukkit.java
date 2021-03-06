@@ -57,7 +57,7 @@ public class UtilsBukkit extends UtilsJava {
      * @param plugin      Plugin Instance
      */
     public static void registerListener(@Nonnull String packageName, @Nonnull Plugin plugin) {
-        PluginManager pluginManager = Objects.requireNonNull(plugin).getServer().getPluginManager();
+        PluginManager pluginManager = Bukkit.getPluginManager();
         try {
             for (ClassPath.ClassInfo classInfo : ClassPath.from(plugin.getClass().getClassLoader())
                     .getTopLevelClasses(Objects.requireNonNull(packageName))) {
