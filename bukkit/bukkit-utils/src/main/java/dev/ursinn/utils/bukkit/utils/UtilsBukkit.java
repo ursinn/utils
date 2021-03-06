@@ -59,7 +59,7 @@ public class UtilsBukkit extends UtilsJava {
     public static void registerListener(@Nonnull String packageName, @Nonnull Plugin plugin) {
         PluginManager pluginManager = Objects.requireNonNull(plugin).getServer().getPluginManager();
         try {
-            for (ClassPath.ClassInfo classInfo : ClassPath.from(ClassLoader.getSystemClassLoader())
+            for (ClassPath.ClassInfo classInfo : ClassPath.from(plugin.getClass().getClassLoader())
                     .getTopLevelClasses(Objects.requireNonNull(packageName))) {
                 Class<Listener> clazz = (Class<Listener>) Class.forName(classInfo.getName());
                 if (Listener.class.isAssignableFrom(clazz)) {
