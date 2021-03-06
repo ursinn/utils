@@ -26,13 +26,12 @@
 package dev.ursinn.utils.bukkit.reflections;
 
 /**
- * @author Ursin Filli
- * @version 1.0
- * @since 1.0
- *
  * An interface for retrieving the field content.
  *
  * @param <T> field type
+ * @author Ursin Filli
+ * @version 1.0
+ * @since 1.0
  */
 public interface FieldAccessor<T> {
 
