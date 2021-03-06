@@ -29,6 +29,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -38,9 +39,9 @@ import java.lang.reflect.Method;
  * @version 1.0
  * @since 1.0
  */
-public class Reflections {
+public class ReflectionsBukkit {
 
-    private Reflections() {
+    private ReflectionsBukkit() {
         throw new IllegalStateException("Utility class");
     }
 
@@ -73,6 +74,79 @@ public class Reflections {
     Class<?> getObcClass(@Nonnull String className) throws ClassNotFoundException {
         String name = "org.bukkit.craftbukkit." + getNmsVersion() + "." + className;
         return Class.forName(name);
+    }
+
+    /**
+     * Retrieve a field accessor for a specific field type and name.
+     *
+     * @param <T>       Class
+     * @param target    the target type
+     * @param name      the name of the field, or NULL to ignore
+     * @param fieldType a compatible field type
+     * @return the field accessor
+     */
+    public static @Nonnull
+    <T> FieldAccessor<T> getField(@Nonnull Class<?> target, @Nonnull String name,
+                                  @Nonnull Class<T> fieldType) {
+        return getField(target, name, fieldType, 0);
+    }
+
+    /**
+     * Retrieve a field accessor for a specific field type and name.
+     *
+     * @param <T>       Class
+     * @param target    the target type
+     * @param fieldType a compatible field type
+     * @param index     the number of compatible fields to skip
+     * @return the field accessor
+     */
+    public static @Nonnull
+    <T> FieldAccessor<T> getField(@Nonnull Class<?> target, @Nonnull Class<T> fieldType,
+                                  int index) {
+        return getField(target, null, fieldType, index);
+    }
+
+    private static @Nonnull
+    <T> FieldAccessor<T> getField(@Nonnull Class<?> target, @Nullable String name,
+                                  @Nonnull Class<T> fieldType, int index) {
+        for (final Field field : target.getDeclaredFields()) {
+            if ((name == null || field.getName().equals(name)) &&
+                    fieldType.isAssignableFrom(field.getType()) && index-- <= 0) {
+                field.setAccessible(true);
+
+                return new FieldAccessor<T>() {
+                    @SuppressWarnings("unchecked")
+                    @Override
+                    public T get(Object target) {
+                        try {
+                            return (T) field.get(target);
+                        } catch (IllegalAccessException e) {
+                            throw new RuntimeException("Cannot access reflection.", e);
+                        }
+                    }
+
+                    @Override
+                    public void set(Object target, Object value) {
+                        try {
+                            field.set(target, value);
+                        } catch (IllegalAccessException e) {
+                            throw new RuntimeException("Cannot access reflection.", e);
+                        }
+                    }
+
+                    @Override
+                    public boolean hasField(Object target) {
+                        return field.getDeclaringClass().isAssignableFrom(target.getClass());
+                    }
+                };
+            }
+        }
+
+        // Search in parent classes
+        if (target.getSuperclass() != null) {
+            return getField(target.getSuperclass(), name, fieldType, index);
+        }
+        throw new IllegalArgumentException("Cannot find field with type " + fieldType);
     }
 
     /**
