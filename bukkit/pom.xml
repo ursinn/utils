@@ -68,7 +68,7 @@
         <!-- Bukkit -->
         <dependency>
             <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
+            <artifactId>craftbukkit</artifactId>
         </dependency>
         <!-- JSR305 [Annotation] -->
         <dependency>
