@@ -89,7 +89,7 @@
         <!-- Dependency Versions [Annotation] -->
         <dependency.jsr305.version>3.0.2</dependency.jsr305.version>
         <dependency.apiguardian.version>1.1.1</dependency.apiguardian.version>
-        <dependency.lombok.version>1.18.18</dependency.lombok.version>
+        <dependency.lombok.version>1.18.20</dependency.lombok.version>
     </properties>
 
     <modules>
