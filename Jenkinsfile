@@ -1,66 +1,38 @@
 pipeline {
-    agent none
+    agent {
+      label 'maven-jdk11-openj9'
+    }
+
+    environment {
+        POM_VERSION = readMavenPom().getVersion()
+    }
 
     stages {
-        stage('Build Java 8') {
-            agent {
-                docker {
-                    image 'maven:3-openjdk-8'
-                    args '-v /root/.m2:/root/.m2'
-                }
-            }
+        stage("Initialization") {
             steps {
-                echo 'Building..'
-                sh 'mvn -pl . clean install'
-                dir('java') {
-                    echo "Building Java Utils..."
-                    sh 'mvn clean install'
-                }
-                dir('bukkit') {
-                    echo "Building Bukkit Utils..."
-                    sh 'mvn clean install'
-                }
-                dir('spigot') {
-                    echo "Building Spigot Utils..."
-                    sh 'mvn clean package'
-                }
-                dir('bungee') {
-                    echo "Building Bungee Utils..."
-                    sh 'mvn clean package'
-                }
+                buildName "#${BUILD_NUMBER} ${POM_VERSION}"
+                scmSkip(deleteBuild: true, skipPattern:'.*\\[ci skip\\].*')
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn -B -U -DskipTests -P jenkins clean install'
             }
             post {
                 success {
-                    archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
+                    archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
                 }
             }
         }
 
-        stage('Build Java 11') {
-            agent {
-                docker {
-                    image 'maven:3-openjdk-11'
-                    args '-v /root/.m2:/root/.m2'
-                }
-            }
+        stage('Test') {
             steps {
-                echo 'Building..'
-                sh 'mvn -pl . clean install'
-                dir('java') {
-                    echo "Building Java Utils..."
-                    sh 'mvn clean verify'
-                }
-                dir('bukkit') {
-                    echo "Building Bukkit Utils..."
-                    sh 'mvn clean verify'
-                }
-                dir('spigot') {
-                    echo "Building Spigot Utils..."
-                    sh 'mvn clean verify'
-                }
-                dir('bungee') {
-                    echo "Building Bungee Utils..."
-                    sh 'mvn clean verify'
+                sh 'mvn -B test'
+            }
+            post {
+                always {
+                    junit '**/target/surefire-reports/*.xml'
                 }
             }
         }
