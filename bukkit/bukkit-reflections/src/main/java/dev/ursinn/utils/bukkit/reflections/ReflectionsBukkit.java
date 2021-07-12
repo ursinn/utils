@@ -25,10 +25,10 @@
 
 package dev.ursinn.utils.bukkit.reflections;
 
+import org.apiguardian.api.API;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -39,6 +39,7 @@ import java.lang.reflect.Method;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.MAINTAINED, since = "1.0")
 public class ReflectionsBukkit {
 
     private ReflectionsBukkit() {
@@ -48,8 +49,7 @@ public class ReflectionsBukkit {
     /**
      * @return NMS Version
      */
-    public static @Nonnull
-    String getNmsVersion() {
+    public static String getNmsVersion() {
         String ver = Bukkit.getServer().getClass().getPackage().getName();
         return ver.substring(ver.lastIndexOf('.') + 1);
     }
@@ -59,8 +59,7 @@ public class ReflectionsBukkit {
      * @return NMS Class
      * @throws ClassNotFoundException NMS Class not Found
      */
-    public static @Nonnull
-    Class<?> getNmsClass(@Nonnull String className) throws ClassNotFoundException {
+    public static Class<?> getNmsClass(String className) throws ClassNotFoundException {
         String name = "net.minecraft.server." + getNmsVersion() + "." + className;
         return Class.forName(name);
     }
@@ -70,8 +69,7 @@ public class ReflectionsBukkit {
      * @return OBC Class
      * @throws ClassNotFoundException OBC Class not Found
      */
-    public static @Nonnull
-    Class<?> getObcClass(@Nonnull String className) throws ClassNotFoundException {
+    public static Class<?> getObcClass(String className) throws ClassNotFoundException {
         String name = "org.bukkit.craftbukkit." + getNmsVersion() + "." + className;
         return Class.forName(name);
     }
@@ -85,9 +83,8 @@ public class ReflectionsBukkit {
      * @param fieldType a compatible field type
      * @return the field accessor
      */
-    public static @Nonnull
-    <T> FieldAccessor<T> getField(@Nonnull Class<?> target, @Nonnull String name,
-                                  @Nonnull Class<T> fieldType) {
+    public static <T> FieldAccessor<T> getField(Class<?> target, String name,
+                                                Class<T> fieldType) {
         return getField(target, name, fieldType, 0);
     }
 
@@ -100,15 +97,13 @@ public class ReflectionsBukkit {
      * @param index     the number of compatible fields to skip
      * @return the field accessor
      */
-    public static @Nonnull
-    <T> FieldAccessor<T> getField(@Nonnull Class<?> target, @Nonnull Class<T> fieldType,
-                                  int index) {
+    public static <T> FieldAccessor<T> getField(Class<?> target, Class<T> fieldType,
+                                                int index) {
         return getField(target, null, fieldType, index);
     }
 
-    private static @Nonnull
-    <T> FieldAccessor<T> getField(@Nonnull Class<?> target, @Nullable String name,
-                                  @Nonnull Class<T> fieldType, int index) {
+    private static <T> FieldAccessor<T> getField(Class<?> target, @Nullable String name,
+                                                 Class<T> fieldType, int index) {
         for (final Field field : target.getDeclaredFields()) {
             if ((name == null || field.getName().equals(name)) &&
                     fieldType.isAssignableFrom(field.getType()) && index-- <= 0) {
@@ -159,8 +154,7 @@ public class ReflectionsBukkit {
      * @throws IllegalAccessException    Exception
      * @throws NoSuchFieldException      Exception
      */
-    public static @Nonnull
-    Object getConnection(@Nonnull Player player) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
+    public static Object getConnection(Player player) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, NoSuchFieldException {
         Method getHandle = player.getClass().getMethod("getHandle");
         Object nmsPlayer = getHandle.invoke(player);
         Field conField = nmsPlayer.getClass().getField("playerConnection");
@@ -178,7 +172,7 @@ public class ReflectionsBukkit {
      * @throws NoSuchFieldException      Exception
      * @throws InvocationTargetException Exception
      */
-    public static void sendPacket(@Nonnull Player player, @Nonnull Object packet) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, NoSuchFieldException, InvocationTargetException {
+    public static void sendPacket(Player player, Object packet) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, NoSuchFieldException, InvocationTargetException {
         Method sendPacket = getNmsClass("PlayerConnection").getMethod("sendPacket", getNmsClass("Packet"));
         sendPacket.invoke(getConnection(player), packet);
     }
