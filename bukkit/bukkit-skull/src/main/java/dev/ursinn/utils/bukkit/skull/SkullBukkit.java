@@ -29,13 +29,13 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import com.mojang.authlib.properties.PropertyMap;
 import dev.ursinn.utils.bukkit.reflections.ReflectionsBukkit;
+import org.apiguardian.api.API;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
-import javax.annotation.Nonnull;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.Base64;
@@ -47,6 +47,7 @@ import java.util.UUID;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.MAINTAINED, since = "1.0")
 public class SkullBukkit {
 
     private SkullBukkit() {
@@ -59,8 +60,7 @@ public class SkullBukkit {
      * @param url skin url
      * @return item ({@link ItemStack})
      */
-    public static @Nonnull
-    ItemStack getCustomSkull(@Nonnull String url) {
+    public static ItemStack getCustomSkull(String url) {
         GameProfile profile = new GameProfile(UUID.randomUUID(), null);
         PropertyMap propertyMap = profile.getProperties();
         if (propertyMap == null) {
@@ -83,8 +83,7 @@ public class SkullBukkit {
      * @param name player name
      * @return item ({@link ItemStack})
      */
-    public static @Nonnull
-    ItemStack getPlayerSkull(@Nonnull String name) {
+    public static ItemStack getPlayerSkull(String name) {
         ItemStack itemStack = new ItemStack(getSkullMaterial(), 1, (short) SkullType.PLAYER.ordinal());
         SkullMeta meta = (SkullMeta) itemStack.getItemMeta();
         meta.setOwner(name);
@@ -92,8 +91,12 @@ public class SkullBukkit {
         return itemStack;
     }
 
-    public static @Nonnull
-    List<String> get18Versions() {
+    /**
+     * Return minecraft version 1.8 to 1.12
+     *
+     * @return minecraft 1.8 skull versions
+     */
+    public static List<String> get18Versions() {
         List<String> versions = new ArrayList<>();
         versions.add("v1_8_R1");
         versions.add("v1_8_R2");
@@ -106,21 +109,17 @@ public class SkullBukkit {
         return versions;
     }
 
-    public static @Nonnull
-    Material getSkullMaterial() {
-        if (get18Versions().contains(ReflectionsBukkit.getNmsVersion())) {
-            return Material.getMaterial("SKULL_ITEM");
-        }
-
-        return Material.getMaterial("LEGACY_SKULL_ITEM");
-    }
-
-    public static @Nonnull
-    Material getPlayerSkullMaterial() {
+    /**
+     * Return material SKULL_ITEM for 1.8 skulls and PLAYER_HEAD for other skull versions
+     *
+     * @return skull material
+     */
+    public static Material getSkullMaterial() {
         if (get18Versions().contains(ReflectionsBukkit.getNmsVersion())) {
             return Material.getMaterial("SKULL_ITEM");
         }
 
         return Material.getMaterial("PLAYER_HEAD");
     }
+
 }
