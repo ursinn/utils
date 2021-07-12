@@ -31,7 +31,6 @@ import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import org.apiguardian.api.API;
 
-import javax.annotation.Nonnull;
 import java.util.Objects;
 
 /**
@@ -54,7 +53,7 @@ public class TabHeader {
      * @param header Header line
      * @param footer Footer line
      */
-    public TabHeader(@Nonnull String header, @Nonnull String footer) {
+    public TabHeader(String header, String footer) {
         this.header = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(header));
         this.footer = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(footer));
     }
@@ -64,7 +63,7 @@ public class TabHeader {
      *
      * @param player Player
      */
-    public void send(@Nonnull ProxiedPlayer player) {
+    public void send(ProxiedPlayer player) {
         player.resetTabHeader();
         player.setTabHeader(new TextComponent(header), new TextComponent(footer));
     }

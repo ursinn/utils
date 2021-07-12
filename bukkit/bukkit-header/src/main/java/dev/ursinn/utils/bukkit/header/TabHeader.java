@@ -30,7 +30,6 @@ import org.apiguardian.api.API;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
-import javax.annotation.Nonnull;
 import java.util.Objects;
 
 /**
@@ -53,7 +52,7 @@ public class TabHeader {
      * @param header Header line
      * @param footer Footer line
      */
-    public TabHeader(@Nonnull String header, @Nonnull String footer) {
+    public TabHeader(String header, String footer) {
         this.header = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(header));
         this.footer = ChatColor.translateAlternateColorCodes('&', Objects.requireNonNull(footer));
     }
@@ -63,7 +62,7 @@ public class TabHeader {
      *
      * @param player Player
      */
-    public void send(@Nonnull Player player) {
+    public void send(Player player) {
         //
     }
 }
