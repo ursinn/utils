@@ -33,7 +33,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.material.MaterialData;
 
-import javax.annotation.Nonnull;
 import java.util.*;
 
 /**
@@ -51,8 +50,7 @@ public class ItemBuilderBukkit {
      *
      * @param itemStack item ({@link ItemStack})
      */
-    public @Nonnull
-    ItemBuilderBukkit(@Nonnull ItemStack itemStack) {
+    public ItemBuilderBukkit(ItemStack itemStack) {
         this.itemStack = Objects.requireNonNull(itemStack);
     }
 
@@ -61,8 +59,7 @@ public class ItemBuilderBukkit {
      *
      * @param type item material
      */
-    public @Nonnull
-    ItemBuilderBukkit(@Nonnull Material type) {
+    public ItemBuilderBukkit(Material type) {
         this.itemStack = new ItemStack(Objects.requireNonNull(type));
     }
 
@@ -72,8 +69,7 @@ public class ItemBuilderBukkit {
      * @param type   item material
      * @param amount item amount
      */
-    public @Nonnull
-    ItemBuilderBukkit(@Nonnull Material type, int amount) {
+    public ItemBuilderBukkit(Material type, int amount) {
         this.itemStack = new ItemStack(Objects.requireNonNull(type), amount);
     }
 
@@ -84,16 +80,14 @@ public class ItemBuilderBukkit {
      * @param amount item amount
      * @param damage durability / damage
      */
-    public @Nonnull
-    ItemBuilderBukkit(@Nonnull Material type, int amount, short damage) {
+    public ItemBuilderBukkit(Material type, int amount, short damage) {
         this.itemStack = new ItemStack(Objects.requireNonNull(type), amount, damage);
     }
 
     /**
      * @return item name
      */
-    public @Nonnull
-    String getName() {
+    public String getName() {
         return getItemMeta().getDisplayName();
     }
 
@@ -101,8 +95,7 @@ public class ItemBuilderBukkit {
      * @param name item name
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit setName(@Nonnull String name) {
+    public ItemBuilderBukkit setName(String name) {
         ItemMeta meta = getItemMeta();
         meta.setDisplayName(name);
         setItemMeta(meta);
@@ -113,8 +106,7 @@ public class ItemBuilderBukkit {
      * @param lore item lore
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit addLore(@Nonnull List<String> lore) {
+    public ItemBuilderBukkit addLore(List<String> lore) {
         ItemMeta meta = getItemMeta();
         meta.setLore(lore);
         setItemMeta(meta);
@@ -125,8 +117,7 @@ public class ItemBuilderBukkit {
      * @param lore item lore
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit addLore(@Nonnull String... lore) {
+    public ItemBuilderBukkit addLore(String... lore) {
         ItemMeta itemMeta = itemStack.getItemMeta();
         List<String> original = itemMeta.getLore();
         if (original == null) {
@@ -141,8 +132,7 @@ public class ItemBuilderBukkit {
     /**
      * @return item lore
      */
-    public @Nonnull
-    List<String> getLore() {
+    public List<String> getLore() {
         return getItemMeta().getLore();
     }
 
@@ -150,8 +140,7 @@ public class ItemBuilderBukkit {
      * @param itemFlags item Flags
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit addItemFlags(@Nonnull ItemFlag... itemFlags) {
+    public ItemBuilderBukkit addItemFlags(ItemFlag... itemFlags) {
         ItemMeta meta = getItemMeta();
         meta.addItemFlags(itemFlags);
         setItemMeta(meta);
@@ -161,16 +150,14 @@ public class ItemBuilderBukkit {
     /**
      * @return item Flags
      */
-    public @Nonnull
-    Set<ItemFlag> getItemFlags() {
+    public Set<ItemFlag> getItemFlags() {
         return getItemMeta().getItemFlags();
     }
 
     /**
      * @return item material
      */
-    public @Nonnull
-    Material getMaterial() {
+    public Material getMaterial() {
         return itemStack.getType();
     }
 
@@ -178,8 +165,7 @@ public class ItemBuilderBukkit {
      * @param type item material
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit setMaterial(@Nonnull Material type) {
+    public ItemBuilderBukkit setMaterial(Material type) {
         itemStack.setType(type);
         return this;
     }
@@ -195,8 +181,7 @@ public class ItemBuilderBukkit {
      * @param amount item amount
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit setAmount(int amount) {
+    public ItemBuilderBukkit setAmount(int amount) {
         itemStack.setAmount(amount);
         return this;
     }
@@ -212,8 +197,7 @@ public class ItemBuilderBukkit {
      * @param damage durability / damage
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit setDurability(short damage) {
+    public ItemBuilderBukkit setDurability(short damage) {
         itemStack.setDurability(damage);
         return this;
     }
@@ -221,8 +205,7 @@ public class ItemBuilderBukkit {
     /**
      * @return item material data
      */
-    public @Nonnull
-    MaterialData getData() {
+    public MaterialData getData() {
         return itemStack.getData();
     }
 
@@ -230,8 +213,7 @@ public class ItemBuilderBukkit {
      * @param data item material data
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit setData(@Nonnull MaterialData data) {
+    public ItemBuilderBukkit setData(MaterialData data) {
         itemStack.setData(data);
         return this;
     }
@@ -241,8 +223,7 @@ public class ItemBuilderBukkit {
      * @param level       enchantment level
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit addEnchantment(@Nonnull Enchantment enchantment, int level) {
+    public ItemBuilderBukkit addEnchantment(Enchantment enchantment, int level) {
         itemStack.addEnchantment(enchantment, level);
         return this;
     }
@@ -251,8 +232,7 @@ public class ItemBuilderBukkit {
      * @param enchantments enchantments
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit addEnchantments(@Nonnull Map<Enchantment, Integer> enchantments) {
+    public ItemBuilderBukkit addEnchantments(Map<Enchantment, Integer> enchantments) {
         itemStack.addEnchantments(enchantments);
         return this;
     }
@@ -262,8 +242,7 @@ public class ItemBuilderBukkit {
      * @param level       enchantment level
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit addUnsafeEnchantment(@Nonnull Enchantment enchantment, int level) {
+    public ItemBuilderBukkit addUnsafeEnchantment(Enchantment enchantment, int level) {
         itemStack.addUnsafeEnchantment(enchantment, level);
         return this;
     }
@@ -272,8 +251,7 @@ public class ItemBuilderBukkit {
      * @param enchantments enchantments
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit addUnsafeEnchantments(@Nonnull Map<Enchantment, Integer> enchantments) {
+    public ItemBuilderBukkit addUnsafeEnchantments(Map<Enchantment, Integer> enchantments) {
         itemStack.addUnsafeEnchantments(enchantments);
         return this;
     }
@@ -281,16 +259,14 @@ public class ItemBuilderBukkit {
     /**
      * @return enchantments
      */
-    public @Nonnull
-    Map<Enchantment, Integer> getEnchantments() {
+    public Map<Enchantment, Integer> getEnchantments() {
         return itemStack.getEnchantments();
     }
 
     /**
      * @return item meta
      */
-    public @Nonnull
-    ItemMeta getItemMeta() {
+    public ItemMeta getItemMeta() {
         return itemStack.getItemMeta();
     }
 
@@ -298,8 +274,7 @@ public class ItemBuilderBukkit {
      * @param meta item meta
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderBukkit setItemMeta(@Nonnull ItemMeta meta) {
+    public ItemBuilderBukkit setItemMeta(ItemMeta meta) {
         itemStack.setItemMeta(meta);
         return this;
     }
@@ -307,8 +282,7 @@ public class ItemBuilderBukkit {
     /**
      * @return item ({@link ItemStack})
      */
-    public @Nonnull
-    ItemStack build() {
+    public ItemStack build() {
         return itemStack;
     }
 }
