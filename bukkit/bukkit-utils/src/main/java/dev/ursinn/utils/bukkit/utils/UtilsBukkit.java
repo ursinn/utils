@@ -33,7 +33,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 
-import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
@@ -56,7 +55,7 @@ public class UtilsBukkit extends UtilsJava {
      * @param packageName Package Name
      * @param plugin      Plugin Instance
      */
-    public static void registerListener(@Nonnull String packageName, @Nonnull Plugin plugin) {
+    public static void registerListener(String packageName, Plugin plugin) {
         PluginManager pluginManager = Bukkit.getPluginManager();
         try {
             for (ClassPath.ClassInfo classInfo : ClassPath.from(plugin.getClass().getClassLoader())
@@ -75,8 +74,7 @@ public class UtilsBukkit extends UtilsJava {
     /**
      * @return NMS Version
      */
-    public static @Nonnull
-    String getNmsVersion() {
+    public static String getNmsVersion() {
         String ver = Bukkit.getServer().getClass().getPackage().getName();
         return ver.substring(ver.lastIndexOf('.') + 1);
     }
