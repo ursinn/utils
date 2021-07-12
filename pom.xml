@@ -80,6 +80,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <ci.build.version>${project.version}</ci.build.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
         <!-- Dependency Versions -->
@@ -148,6 +149,7 @@
 
     <build>
         <defaultGoal>clean package</defaultGoal>
+        <finalName>${project.artifactId}-${ci.build.version}</finalName>
         <pluginManagement>
             <plugins>
                 <!-- Compiler Plugin -->
@@ -301,6 +303,15 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>jenkins</id>
+            <properties>
+                <!--suppress UnresolvedMavenProperty -->
+                <ci.build.version>
+                    ${project.version}-b${env.BUILD_NUMBER}_${env.BRANCH_NAME}
+                </ci.build.version>
+            </properties>
         </profile>
     </profiles>
 
