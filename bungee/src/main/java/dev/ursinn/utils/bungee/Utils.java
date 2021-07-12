@@ -31,7 +31,6 @@ import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
 import org.apiguardian.api.API;
 
-import javax.annotation.Nonnull;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
@@ -54,7 +53,7 @@ public class Utils {
      * @param packageName Package Name
      * @param plugin      Plugin Instance
      */
-    public static void registerListener(@Nonnull String packageName, @Nonnull Plugin plugin) {
+    public static void registerListener(String packageName, Plugin plugin) {
         PluginManager pluginManager = Objects.requireNonNull(plugin).getProxy().getPluginManager();
         try {
             for (ClassPath.ClassInfo classInfo : ClassPath.from(ClassLoader.getSystemClassLoader())
@@ -77,8 +76,7 @@ public class Utils {
      * @param start Start position in array
      * @return String
      */
-    public static @Nonnull
-    String buildString(@Nonnull String[] args, int start) {
+    public static String buildString(String[] args, int start) {
         StringBuilder sb = new StringBuilder();
         for (int i = start; i < args.length; i++) {
             if (i == args.length - 1) {
