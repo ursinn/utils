@@ -31,7 +31,6 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import javax.annotation.Nonnull;
 import java.util.Objects;
 
 /**
@@ -47,8 +46,7 @@ public class ItemBuilderSpigot extends ItemBuilderBukkit {
      *
      * @param itemStack item ({@link ItemStack})
      */
-    public @Nonnull
-    ItemBuilderSpigot(@Nonnull ItemStack itemStack) {
+    public ItemBuilderSpigot(ItemStack itemStack) {
         super(Objects.requireNonNull(itemStack));
     }
 
@@ -57,8 +55,7 @@ public class ItemBuilderSpigot extends ItemBuilderBukkit {
      *
      * @param type item material
      */
-    public @Nonnull
-    ItemBuilderSpigot(@Nonnull Material type) {
+    public ItemBuilderSpigot(Material type) {
         super(Objects.requireNonNull(type));
     }
 
@@ -68,8 +65,7 @@ public class ItemBuilderSpigot extends ItemBuilderBukkit {
      * @param type   item material
      * @param amount item amount
      */
-    public @Nonnull
-    ItemBuilderSpigot(@Nonnull Material type, int amount) {
+    public ItemBuilderSpigot(Material type, int amount) {
         super(Objects.requireNonNull(type), amount);
     }
 
@@ -80,8 +76,7 @@ public class ItemBuilderSpigot extends ItemBuilderBukkit {
      * @param amount item amount
      * @param damage durability / damage
      */
-    public @Nonnull
-    ItemBuilderSpigot(@Nonnull Material type, int amount, short damage) {
+    public ItemBuilderSpigot(Material type, int amount, short damage) {
         super(Objects.requireNonNull(type), amount, damage);
     }
 
@@ -96,8 +91,7 @@ public class ItemBuilderSpigot extends ItemBuilderBukkit {
      * @param unbreakable Unbreakable status
      * @return ItemBuilder
      */
-    public @Nonnull
-    ItemBuilderSpigot setUnbreakable(boolean unbreakable) {
+    public ItemBuilderSpigot setUnbreakable(boolean unbreakable) {
         ItemMeta meta = getItemMeta();
         meta.spigot().setUnbreakable(unbreakable);
         setItemMeta(meta);
