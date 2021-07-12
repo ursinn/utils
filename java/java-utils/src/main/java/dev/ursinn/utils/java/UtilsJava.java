@@ -27,8 +27,6 @@ package dev.ursinn.utils.java;
 
 import org.apiguardian.api.API;
 
-import javax.annotation.Nonnull;
-
 /**
  * @author Ursin Filli
  * @version 1.0
@@ -48,8 +46,7 @@ public class UtilsJava {
      * @param start Start position in array
      * @return String
      */
-    public static @Nonnull
-    String buildString(@Nonnull String[] args, int start) {
+    public static String buildString(String[] args, int start) {
         StringBuilder sb = new StringBuilder();
         for (int i = start; i < args.length; i++) {
             if (i == args.length - 1) {
