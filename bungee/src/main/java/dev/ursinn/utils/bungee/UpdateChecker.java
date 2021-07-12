@@ -30,7 +30,6 @@ import lombok.Getter;
 import net.md_5.bungee.api.plugin.Plugin;
 import org.apiguardian.api.API;
 
-import javax.annotation.Nonnull;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -63,7 +62,7 @@ public class UpdateChecker {
      * @param id     Spigot Plugin Id
      * @param plugin Instance of {@link Plugin}
      */
-    public UpdateChecker(int id, @Nonnull Plugin plugin) {
+    public UpdateChecker(int id, Plugin plugin) {
         this.id = id;
         this.plugin = Objects.requireNonNull(plugin);
         this.updateAvailable = false;
@@ -85,7 +84,7 @@ public class UpdateChecker {
         }).start();
     }
 
-    private void checkVersion(@Nonnull URLConnection connection) throws IOException {
+    private void checkVersion(URLConnection connection) throws IOException {
         @Cleanup InputStreamReader reader = new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8);
         @Cleanup BufferedReader br = new BufferedReader(reader);
         String oldVersion = plugin.getDescription().getVersion();
@@ -102,15 +101,14 @@ public class UpdateChecker {
      *
      * @param updateNotifyText UpdateNotifyText
      */
-    public void setUpdateNotifyText(@Nonnull String updateNotifyText) {
+    public void setUpdateNotifyText(String updateNotifyText) {
         this.updateNotifyText = updateNotifyText;
     }
 
     /**
      * @return Formatted UpdateNotifyText
      */
-    public @Nonnull
-    String getFormattedUpdateNotifyText() {
+    public String getFormattedUpdateNotifyText() {
         return updateNotifyText.replace("%PLUGIN_NAME%", plugin.getDescription().getName());
     }
 }
