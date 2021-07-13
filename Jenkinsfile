@@ -42,7 +42,7 @@ pipeline {
             steps {
                 echo 'Deploying'
                 withMaven {
-//                     sh 'mvn -B deploy'
+                    sh 'mvn -B deploy'
                 }
             }
         }
