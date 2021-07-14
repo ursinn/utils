@@ -29,7 +29,6 @@ import com.google.common.reflect.ClassPath;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
-import org.apiguardian.api.API;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -40,7 +39,6 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.MAINTAINED, since = "1.0")
 public class Utils {
 
     private Utils() {

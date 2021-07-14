@@ -27,7 +27,6 @@ package dev.ursinn.utils.bukkit.checker;
 
 import lombok.Cleanup;
 import lombok.Getter;
-import org.apiguardian.api.API;
 import org.bukkit.plugin.Plugin;
 
 import java.io.BufferedReader;
@@ -43,7 +42,6 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.STABLE, since = "1.0")
 public class UpdateChecker {
 
     private final int id;

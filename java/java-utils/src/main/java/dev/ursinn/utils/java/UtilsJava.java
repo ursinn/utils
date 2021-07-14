@@ -25,14 +25,12 @@
 
 package dev.ursinn.utils.java;
 
-import org.apiguardian.api.API;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.MAINTAINED, since = "1.0")
 public class UtilsJava {
 
     protected UtilsJava() {

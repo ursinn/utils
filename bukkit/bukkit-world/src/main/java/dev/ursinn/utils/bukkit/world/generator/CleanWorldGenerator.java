@@ -25,7 +25,6 @@
 
 package dev.ursinn.utils.bukkit.world.generator;
 
-import org.apiguardian.api.API;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.generator.BlockPopulator;
@@ -40,7 +39,6 @@ import java.util.Random;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.EXPERIMENTAL, since = "1.0")
 public class CleanWorldGenerator extends ChunkGenerator {
 
     @Override

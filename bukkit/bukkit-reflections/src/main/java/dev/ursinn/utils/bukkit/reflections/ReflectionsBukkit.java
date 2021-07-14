@@ -25,7 +25,6 @@
 
 package dev.ursinn.utils.bukkit.reflections;
 
-import org.apiguardian.api.API;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -39,7 +38,6 @@ import java.lang.reflect.Method;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.MAINTAINED, since = "1.0")
 public class ReflectionsBukkit {
 
     private ReflectionsBukkit() {

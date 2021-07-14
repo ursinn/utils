@@ -29,7 +29,6 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import com.mojang.authlib.properties.PropertyMap;
 import dev.ursinn.utils.bukkit.reflections.ReflectionsBukkit;
-import org.apiguardian.api.API;
 import org.bukkit.Material;
 import org.bukkit.SkullType;
 import org.bukkit.inventory.ItemStack;
@@ -47,7 +46,6 @@ import java.util.UUID;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.MAINTAINED, since = "1.0")
 public class SkullBukkit {
 
     private SkullBukkit() {

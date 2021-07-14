@@ -27,7 +27,6 @@ package dev.ursinn.utils.bukkit.utils;
 
 import com.google.common.reflect.ClassPath;
 import dev.ursinn.utils.java.UtilsJava;
-import org.apiguardian.api.API;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
@@ -42,7 +41,6 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.MAINTAINED, since = "1.0")
 public class UtilsBukkit extends UtilsJava {
 
     protected UtilsBukkit() {

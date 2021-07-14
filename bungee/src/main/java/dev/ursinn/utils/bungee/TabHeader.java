@@ -29,7 +29,6 @@ import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
-import org.apiguardian.api.API;
 
 import java.util.Objects;
 
@@ -38,7 +37,6 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.MAINTAINED, since = "1.0")
 public class TabHeader {
 
     @Getter

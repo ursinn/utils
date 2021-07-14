@@ -26,7 +26,6 @@
 package dev.ursinn.utils.spigot.builder;
 
 import dev.ursinn.utils.bukkit.builder.ItemBuilderBukkit;
-import org.apiguardian.api.API;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -38,7 +37,6 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.MAINTAINED, since = "1.0")
 public class ItemBuilderSpigot extends ItemBuilderBukkit {
 
     /**

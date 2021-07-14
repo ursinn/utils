@@ -28,7 +28,6 @@ package dev.ursinn.utils.bungee;
 import lombok.Cleanup;
 import lombok.Getter;
 import net.md_5.bungee.api.plugin.Plugin;
-import org.apiguardian.api.API;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,7 +42,6 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.STABLE, since = "1.0")
 public class UpdateChecker {
 
     private final int id;

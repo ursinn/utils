@@ -25,8 +25,6 @@
 
 package dev.ursinn.utils.bukkit.reflections;
 
-import org.apiguardian.api.API;
-
 /**
  * An interface for retrieving the field content.
  *
@@ -35,7 +33,6 @@ import org.apiguardian.api.API;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.MAINTAINED, since = "1.0")
 public interface FieldAccessor<T> {
 
     /**

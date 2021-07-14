@@ -26,7 +26,6 @@
 package dev.ursinn.utils.bukkit.header;
 
 import lombok.Getter;
-import org.apiguardian.api.API;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -37,7 +36,6 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
-@API(status = API.Status.EXPERIMENTAL, since = "1.0")
 public class TabHeader {
 
     @Getter
