@@ -23,11 +23,10 @@
  *
  */
 
-package dev.ursinn.utils.bungee;
+package dev.ursinn.utils.minecraft.checker;
 
 import lombok.Cleanup;
 import lombok.Getter;
-import net.md_5.bungee.api.plugin.Plugin;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -44,8 +43,10 @@ import java.util.Objects;
  */
 public class UpdateChecker {
 
-    private final int id;
-    private final Plugin plugin;
+    private final String id;
+    private final String pluginName;
+    private final String pluginVersion;
+    private final UpdatePlatform updatePlatform;
 
     /**
      * Result of UpdateCheck
@@ -57,12 +58,15 @@ public class UpdateChecker {
     /**
      * Constructor.
      *
-     * @param id     Spigot Plugin Id
-     * @param plugin Instance of {@link Plugin}
+     * @param id      Plugin Id
+     * @param name    Plugin Name
+     * @param version Plugin Version
      */
-    public UpdateChecker(int id, Plugin plugin) {
-        this.id = id;
-        this.plugin = Objects.requireNonNull(plugin);
+    public UpdateChecker(String id, String name, String version, UpdatePlatform platform) {
+        this.id = Objects.requireNonNull(id);
+        this.pluginName = Objects.requireNonNull(name);
+        this.pluginVersion = Objects.requireNonNull(version);
+        this.updatePlatform = Objects.requireNonNull(platform);
         this.updateAvailable = false;
         this.updateNotifyText = "An update for %PLUGIN_NAME% is available";
     }
@@ -73,11 +77,10 @@ public class UpdateChecker {
     public void checkUpdate() {
         new Thread(() -> {
             try {
-                URLConnection connection = new URL(
-                        "https://api.spigotmc.org/legacy/update.php?resource=" + id).openConnection();
+                URLConnection connection = new URL(updatePlatform.getUrl(id)).openConnection();
                 checkVersion(connection);
             } catch (IOException exception) {
-                plugin.getLogger().warning(String.valueOf(exception));
+                System.err.println(exception.getMessage());
             }
         }).start();
     }
@@ -85,11 +88,10 @@ public class UpdateChecker {
     private void checkVersion(URLConnection connection) throws IOException {
         @Cleanup InputStreamReader reader = new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8);
         @Cleanup BufferedReader br = new BufferedReader(reader);
-        String oldVersion = plugin.getDescription().getVersion();
         String newVersion = br.readLine();
-        if (!newVersion.equals(oldVersion)) {
+        if (!newVersion.equals(pluginVersion)) {
             updateAvailable = true;
-            plugin.getLogger().info(getFormattedUpdateNotifyText());
+            System.out.println(getFormattedUpdateNotifyText());
         }
     }
 
@@ -107,6 +109,6 @@ public class UpdateChecker {
      * @return Formatted UpdateNotifyText
      */
     public String getFormattedUpdateNotifyText() {
-        return updateNotifyText.replace("%PLUGIN_NAME%", plugin.getDescription().getName());
+        return updateNotifyText.replace("%PLUGIN_NAME%", pluginName);
     }
 }

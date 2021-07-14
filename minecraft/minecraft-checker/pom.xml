@@ -31,16 +31,16 @@
 
     <parent>
         <groupId>dev.ursinn.utils</groupId>
-        <artifactId>bukkit-parent</artifactId>
+        <artifactId>minecraft-parent</artifactId>
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bukkit-checker</artifactId>
+    <artifactId>minecraft-checker</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Bukkit Utils Checker</name>
-    <description>Bukkit Utils</description>
+    <name>Minecraft Utils Checker</name>
+    <description>Minecraft Utils</description>
     <url>https://github.com/ursinn/utils</url>
 
     <properties>

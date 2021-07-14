@@ -35,12 +35,12 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bukkit-parent</artifactId>
+    <artifactId>minecraft-parent</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Bukkit Utils Maven Parent</name>
-    <description>Bukkit Utils</description>
+    <name>Minecraft Utils Maven Parent</name>
+    <description>Minecraft Utils</description>
     <url>https://github.com/ursinn/utils</url>
 
     <properties>
@@ -48,28 +48,10 @@
     </properties>
 
     <modules>
-        <module>bukkit-utils</module>
-        <module>bukkit-builder</module>
-        <module>bukkit-world</module>
-        <module>bukkit-reflections</module>
-        <module>bukkit-header</module>
-        <module>bukkit-skull</module>
+        <module>minecraft-checker</module>
     </modules>
 
-    <repositories>
-        <!-- Bukkit Dependency -->
-        <repository>
-            <id>nms-repo</id>
-            <url>https://repo.codemc.io/repository/nms/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
-        <!-- Bukkit -->
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>craftbukkit</artifactId>
-        </dependency>
         <!-- JSR305 [Annotation] -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
