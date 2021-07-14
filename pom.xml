@@ -86,10 +86,8 @@
         <!-- Dependency Versions -->
         <dependency.bukkit.version>1.8.8-R0.1-SNAPSHOT</dependency.bukkit.version>
         <dependency.bungeecord.version>1.16-R0.4</dependency.bungeecord.version>
-        <dependency.guava.version>30.1-jre</dependency.guava.version>
         <!-- Dependency Versions [Annotation] -->
         <dependency.jsr305.version>3.0.2</dependency.jsr305.version>
-        <dependency.apiguardian.version>1.1.2</dependency.apiguardian.version>
         <dependency.lombok.version>1.18.20</dependency.lombok.version>
     </properties>
 
@@ -128,13 +126,6 @@
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>jsr305</artifactId>
                 <version>${dependency.jsr305.version}</version>
-                <scope>provided</scope>
-            </dependency>
-            <!-- API [Annotation] -->
-            <dependency>
-                <groupId>org.apiguardian</groupId>
-                <artifactId>apiguardian-api</artifactId>
-                <version>${dependency.apiguardian.version}</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Lombok [Annotation] -->
@@ -304,6 +295,7 @@
                 </plugins>
             </build>
         </profile>
+        <!-- Jenkins -->
         <profile>
             <id>jenkins</id>
             <properties>
