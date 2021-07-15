@@ -48,6 +48,13 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>dev.ursinn.utils</groupId>
+            <artifactId>java-utils</artifactId>
+            <version>${project.version}</version>
+            <scope>compile</scope>
+        </dependency>
+
         <!-- BungeeCord -->
         <dependency>
             <groupId>net.md-5</groupId>

@@ -26,6 +26,7 @@
 package dev.ursinn.utils.bungee;
 
 import com.google.common.reflect.ClassPath;
+import dev.ursinn.utils.java.UtilsJava;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
@@ -39,9 +40,9 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
-public class Utils {
+public class UtilsBungee extends UtilsJava {
 
-    private Utils() {
+    private UtilsBungee() {
         throw new IllegalStateException("Utility class");
     }
 
@@ -65,24 +66,5 @@ public class Utils {
                 IllegalAccessException | InvocationTargetException | InstantiationException exception) {
             plugin.getLogger().warning(String.valueOf(exception));
         }
-    }
-
-    /**
-     * Build String from String array
-     *
-     * @param args  String array
-     * @param start Start position in array
-     * @return String
-     */
-    public static String buildString(String[] args, int start) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = start; i < args.length; i++) {
-            if (i == args.length - 1) {
-                sb.append(args[i]);
-            } else {
-                sb.append(args[i]).append(" ");
-            }
-        }
-        return sb.toString();
     }
 }
