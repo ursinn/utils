@@ -34,7 +34,6 @@ import org.bukkit.plugin.PluginManager;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Objects;
 
 /**
  * @author Ursin Filli
@@ -54,10 +53,10 @@ public class UtilsBukkit extends UtilsJava {
      * @param plugin      Plugin Instance
      */
     public static void registerListener(String packageName, Plugin plugin) {
-        PluginManager pluginManager = Bukkit.getPluginManager();
+        PluginManager pluginManager = plugin.getServer().getPluginManager();
         try {
-            for (ClassPath.ClassInfo classInfo : ClassPath.from(plugin.getClass().getClassLoader())
-                    .getTopLevelClasses(Objects.requireNonNull(packageName))) {
+            for (ClassPath.ClassInfo classInfo : ClassPath.from(ClassLoader.getSystemClassLoader())
+                    .getTopLevelClasses(packageName)) {
                 Class<Listener> clazz = (Class<Listener>) Class.forName(classInfo.getName());
                 if (Listener.class.isAssignableFrom(clazz)) {
                     pluginManager.registerEvents(clazz.getDeclaredConstructor().newInstance(), plugin);
