@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-builder/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-builder/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-header/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-header/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-reflections/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-reflections/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-skull/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-skull/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-utils/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-utils/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-world/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/bukkit-world/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bukkit/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bungee/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/bungee/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java/java-utils/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java/java-utils/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/java/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/minecraft/minecraft-checker/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/minecraft/minecraft-checker/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/minecraft/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/minecraft/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spigot/spigot-builder/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spigot/spigot-builder/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spigot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/spigot/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
