@@ -84,7 +84,7 @@
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
         <!-- Dependency Versions -->
         <dependency.bukkit.version>1.8.8-R0.1-SNAPSHOT</dependency.bukkit.version>
-        <dependency.bungeecord.version>1.16-R0.4</dependency.bungeecord.version>
+        <dependency.bungeecord.version>1.18-R0.1-SNAPSHOT</dependency.bungeecord.version>
         <!-- Dependency Versions [Annotation] -->
         <dependency.jsr305.version>3.0.2</dependency.jsr305.version>
         <dependency.lombok.version>1.18.22</dependency.lombok.version>
@@ -97,6 +97,13 @@
         <module>minecraft</module>
         <module>spigot</module>
     </modules>
+
+    <repositories>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+        </repository>
+    </repositories>
 
     <dependencyManagement>
         <dependencies>
