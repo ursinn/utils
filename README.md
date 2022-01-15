@@ -7,13 +7,8 @@
 [![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/ursinn/utils?logo=codeclimate&style=for-the-badge)](https://codeclimate.com/github/ursinn/utils)
 [![Snyk Vulnerabilities for GitHub Repo](https://img.shields.io/snyk/vulnerabilities/github/ursinn/utils?logo=snyk&style=for-the-badge)](https://snyk.io/test/github/ursinn/utils)
 [![License](https://img.shields.io/github/license/ursinn/utils?style=for-the-badge)](https://github.com/ursinn/utils/blob/main/LICENSE)
----
 
-## Description
-
-Description
-
----
+Just some utils
 
 ## License
 
