@@ -1,9 +1,5 @@
 plugins:
-  checkstyle:
-    enabled: false
-  markdownlint:
-    enabled: true
-  pmd:
+  fixme:
     enabled: true
   sonar-java:
     enabled: true
