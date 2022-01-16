@@ -34,6 +34,7 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
 import java.util.Objects;
+import java.util.logging.Logger;
 
 /**
  * @author Ursin Filli
@@ -46,6 +47,7 @@ public class UpdateChecker {
     private final String pluginName;
     private final String pluginVersion;
     private final UpdatePlatform updatePlatform;
+    private final Logger logger;
 
     /**
      * Result of UpdateCheck
@@ -60,12 +62,14 @@ public class UpdateChecker {
      * @param id      Plugin Id
      * @param name    Plugin Name
      * @param version Plugin Version
+     * @param logger  Plugin Logger
      */
-    public UpdateChecker(String id, String name, String version, UpdatePlatform platform) {
+    public UpdateChecker(String id, String name, String version, UpdatePlatform platform, Logger logger) {
         this.id = Objects.requireNonNull(id);
         this.pluginName = Objects.requireNonNull(name);
         this.pluginVersion = Objects.requireNonNull(version);
         this.updatePlatform = Objects.requireNonNull(platform);
+        this.logger = Objects.requireNonNull(logger);
         this.updateAvailable = false;
         this.updateNotifyText = "An update for %PLUGIN_NAME% is available";
     }
@@ -79,7 +83,7 @@ public class UpdateChecker {
                 URLConnection connection = new URL(updatePlatform.getUrl(id)).openConnection();
                 checkVersion(connection);
             } catch (IOException exception) {
-                System.err.println(exception.getMessage());
+                logger.warning(exception.getMessage());
             }
         }).start();
     }
@@ -90,7 +94,7 @@ public class UpdateChecker {
         String newVersion = br.readLine();
         if (!newVersion.equals(pluginVersion)) {
             updateAvailable = true;
-            System.out.println(getFormattedUpdateNotifyText());
+            logger.info(getFormattedUpdateNotifyText());
         }
     }
 

@@ -26,20 +26,15 @@ package dev.ursinn.utils.minecraft.checker;
 
 public enum UpdatePlatform {
 
-    SPIGOT("spigot", "https://api.spigotmc.org/legacy/update.php?resource=");
+    SPIGOT("https://api.spigotmc.org/legacy/update.php?resource={id}");
 
-    private final String name;
     private final String url;
 
-    UpdatePlatform(String name, String url) {
-        this.name = name;
+    UpdatePlatform(String url) {
         this.url = url;
     }
 
     public String getUrl(String id) {
-        if (name.equals("spigot")) {
-            return url + id;
-        }
-        return url;
+        return url.replace("{id}", id);
     }
 }
