@@ -87,7 +87,7 @@
         <dependency.bungeecord.version>1.18-R0.1-SNAPSHOT</dependency.bungeecord.version>
         <!-- Dependency Versions [Annotation] -->
         <dependency.jsr305.version>3.0.2</dependency.jsr305.version>
-        <dependency.lombok.version>1.18.24</dependency.lombok.version>
+        <dependency.lombok.version>1.18.26</dependency.lombok.version>
     </properties>
 
     <modules>
